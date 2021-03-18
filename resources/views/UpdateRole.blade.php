@@ -67,21 +67,25 @@
             <p class="text-center">Update Role</p>
                 <div class="card">
                     <div class="card-body">
-                    @foreach($roles as $uprole)
+                    
                         <form action="/admin/updaterole" method="POST">
                         @csrf
+                        <div class="form-group">
+                                <input value  type="text" class="form-control" name="id" placeholder="Id">
+                            </div>   
                             <div class="form-group">
-                                <input value = "{{$uprole->name}}" type="text" class="form-control" name="name" placeholder="Role">
+                                <input value  type="text" class="form-control" name="name" placeholder="Role">
                             </div>                            
-                            <a href="/admin/role">                  
+                                <a href="/admin/role">                  
                                     <button type="button" class="btn btn-danger">Close</button> 
                                 </a>
                               <button type="submit" class="btn btn-primary">Submit</button>                    
                         </form>
-                    @endforeach
+                   
                     </div>
                 </div>
             </div>
         </div>
         </div>
     </div>
+

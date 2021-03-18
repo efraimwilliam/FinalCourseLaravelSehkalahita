@@ -91,7 +91,10 @@ class DashboardController extends Controller
             'name' => $request->name
         ]);
 
-        return view('/admin/role', compact ('roles'));
+        return redirect('/admin/role');
+        
+        //return redirect('/admin/updaterole', compact('roles')) ;
+        //return view('UpdateRole', compact ('roles'));
 
     }
 
