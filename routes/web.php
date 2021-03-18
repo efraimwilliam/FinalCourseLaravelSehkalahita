@@ -17,20 +17,31 @@ use App\Http\Controllers\DashboardController;
 */
 
 
-Route::get('/', function () {
-    return view('Dashboard');
-})->middleware('auth:2');
+Route::prefix('/')->middleware('auth', 'role:user', 'role:admin')->group( function () {
+    
 
-Route::prefix('/admin')->group(function (){
+
+
+});
+
+Route::prefix('/admin')->middleware('auth', 'role:admin')->group(function (){
 
     //home
     Route::get('/a', [DashboardController::class, 'getjumlahbuku']);
 
+
     //role
-    Route::get('/role', function(){
-        return view('Role');
-    });
+    Route::get('/role', [DashboardController::class, 'getrole']);
+
+    Route::get('/createrolepage', [DashboardController::class, 'createrolepage']);
+
+    Route::post('/createrole', [DashboardController::class, 'createrole']);
+
+    Route::get('/updaterolepage', [DashboardController::class, 'updaterolepage']);
+
+    Route::get('/updaterole', [DashboardController::class, 'updaterole']);
     
+
     //buku
     Route::get('/buku', [DashboardController::class, 'getbuku']);
 
@@ -44,13 +55,18 @@ Route::prefix('/admin')->group(function (){
 
     Route::post('/updatebuku', [DashboardController::class, 'updatebuku']);
 
-    //peminjaman
 
+    //peminjaman
+    Route::get('/peminjaman', [DashboardController::class, 'getpeminjaman']);
+
+    Route::get('/createpeminjamanpage', [DashboardController::class, 'createpeminjamanpage']);
+
+    Route::post('/createpeminjaman', [DashboardController::class, 'createpeminjaman']);
     
 });
 
 
-
+//Auth
 Route::get('/auth', [AuthController::class, 'loginpage']);
 
 Route::post('/login', [AuthController::class, 'login']);

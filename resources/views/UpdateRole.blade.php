@@ -64,22 +64,21 @@
         
         <div class="row justify-content-center align-items-center" style="height:100vh">
             <div class="col-4">
-            <p class="text-center">Registrasi Buku</p>
+            <p class="text-center">Update Role</p>
                 <div class="card">
                     <div class="card-body">
-                        <form action="/admin/createbuku" method="POST">
+                    @foreach($roles as $uprole)
+                        <form action="/admin/updaterole" method="POST">
                         @csrf
                             <div class="form-group">
-                                <input type="text" class="form-control" name="name" placeholder="Nama">
+                                <input value = "{{$uprole->name}}" type="text" class="form-control" name="name" placeholder="Role">
                             </div>                            
-                            <div class="form-group">
-                                <input type="username" class="form-control" name="jumlah_buku" placeholder="Jumlah Buku">
-                            </div>
-                                <a href="/admin/buku">                  
-                                  <button type="button" class="btn btn-danger">Close</button> 
+                            <a href="/admin/role">                  
+                                    <button type="button" class="btn btn-danger">Close</button> 
                                 </a>
                               <button type="submit" class="btn btn-primary">Submit</button>                    
                         </form>
+                    @endforeach
                     </div>
                 </div>
             </div>

@@ -42,4 +42,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //one to many inverse
+    public function role(){
+        return $this->belongsTo(Role::class, 'role_id');
+    }
+
+    //one to many Peminjaman user
+    public function peminjamanuser(){
+        return $this->hasMany(Peminjaman::class, 'id_user');
+    }
+
+    //one to many Peminjaman admin
+    public function peminjamanadmin(){
+        return $this->hasMany(Peminjaman::class, 'id_admin');
+    }
 }

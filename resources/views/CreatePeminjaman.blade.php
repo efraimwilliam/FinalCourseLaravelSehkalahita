@@ -64,19 +64,22 @@
         
         <div class="row justify-content-center align-items-center" style="height:100vh">
             <div class="col-4">
-            <p class="text-center">Registrasi Buku</p>
+            <p class="text-center">Create Peminjaman</p>
                 <div class="card">
                     <div class="card-body">
-                        <form action="/admin/createbuku" method="POST">
+                        <form action="/admin/createpeminjaman" method="POST">
                         @csrf
                             <div class="form-group">
-                                <input type="text" class="form-control" name="name" placeholder="Nama">
-                            </div>                            
-                            <div class="form-group">
-                                <input type="username" class="form-control" name="jumlah_buku" placeholder="Jumlah Buku">
+                                <input type="text" class="form-control" name="id_buku" placeholder="Id Buku">
                             </div>
-                                <a href="/admin/buku">                  
-                                  <button type="button" class="btn btn-danger">Close</button> 
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="id_user" placeholder="Id User">
+                            </div>  
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="id_admin" placeholder="Id Admin">
+                            </div>        
+                                <a href="/admin/peminjaman">                  
+                                    <button type="button" class="btn btn-danger">Close</button> 
                                 </a>
                               <button type="submit" class="btn btn-primary">Submit</button>                    
                         </form>

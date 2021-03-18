@@ -10,6 +10,7 @@
 
 
 <link href="{{ asset('css/dashboard2.css') }}" rel="stylesheet">
+<link href="{{ asset('css/buku.css') }}" rel="stylesheet">
 <!------ Include the above in your HEAD tag ---------->
 </head>
 <body>
@@ -60,55 +61,48 @@
     </div>
   </nav>
 
-  <div class="content-wrapper">
-    <div class="container-fluid">
-      <div class="row">
+   <!-- Table-->
 
-      <!-- Icon Cards-->
-        <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-2 mt-4">
-            <div class="inforide">
-              <div class="row">
-                <div class="col-lg-3 col-md-4 col-sm-4 col-4 rideone">
-                    <img src="https://vignette.wikia.nocookie.net/nationstates/images/2/29/WS_Logo.png/revision/latest?cb=20080507063620">
-                </div>
-                <div class="col-lg-9 col-md-8 col-sm-8 col-8 fontsty">
-                    <h4>Buku</h4>
-                    <h2>{{$jumlah}}</h2>
-                </div>
-              </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-2 mt-4">
-            <div class="inforide">
-              <div class="row">
-                <div class="col-lg-3 col-md-4 col-sm-4 col-4 ridetwo">
-                    <img src="https://vignette.wikia.nocookie.net/nationstates/images/2/29/WS_Logo.png/revision/latest?cb=20080507063620">
-                </div>
-                <div class="col-lg-9 col-md-8 col-sm-8 col-8 fontsty">
-                    <h4>Peminjaman</h4>
-                    <h2>{{$jumlah ?? 'Peminjaman'}}</h2>
-                </div>
-              </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-2 mt-4">
-            <div class="inforide">
-              <div class="row">
-                <div class="col-lg-3 col-md-4 col-sm-4 col-4 ridethree">
-                    <img src="https://vignette.wikia.nocookie.net/nationstates/images/2/29/WS_Logo.png/revision/latest?cb=20080507063620">
-                </div>
-                <div class="col-lg-9 col-md-8 col-sm-8 col-8 fontsty">
-                    <h4>Role</h4>
-                    <h2>{{$jumlah ?? 'Admin'}}</h2>
-                </div>
-              </div>
-            </div>
-        </div>
-
+<div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+    <thead> 
+    
+        <tr> 
+            <th>ID</th>
+            <th>Id Buku</th>
+            <th>Id User</th>
+            <th>Id Admin
+            <th class="text-center">Action</th>
+        </tr>
+      
+    </thead>
+    <tbody>
+      @foreach($peminjaman as $pinjam)
+            <tr>
+                  <td>{{$pinjam->id}}</td>
+                  <td>{{$pinjam->id_buku}}</td>
+                  <td>{{$pinjam->id_user}}</td>
+                  <td>{{$pinjam->id_admin}}</td>
+                  <td class="text-center">
+                    <a class='btn btn-info btn-xs' href="#">
+                      <span class="glyphicon glyphicon-edit"></span> Edit
+                    </a> 
+                    <a href="#" class="btn btn-danger btn-xs">
+                      <span class="glyphicon glyphicon-remove"></span> Delete
+                    </a>
+                  </td>               
+                      <button id='{{$pinjam->id}}' type='button' class='btn-showedit btn btn-primary' data-toggle='modal'>Edit</button>
+                      <button id='{{$pinjam->id}}' type='submit' class='btn-delete btn btn-primary'>Delete</button>
+                  </td>
+            </tr>
+        @endforeach
+      </tbody>
+    </table>
     </div>
-  </div>
+    <div class="button-create">
+      <a href="/admin/createpeminjamanpage" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create Role</a>
+    </div>
 </div>
 
-</body>
+

@@ -1,58 +1,120 @@
 <head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
-
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<link href="{{ asset('css/dashboardadmin.css') }}" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+
+
+<link href="{{ asset('css/dashboard2.css') }}" rel="stylesheet">
 <!------ Include the above in your HEAD tag ---------->
 </head>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="mx-3 my-sm-3">
-  <a class="navbar-brand" href="#">Admin</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  </div>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto mx-3">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Role</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Buku</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Peminjaman</a>
-      </li>
-    </ul>
-  </div>
+<body>
   
-  <a href="/logout">
-      <button class="btn btn-outline-danger my-2 my-sm-0 mx-5 float-end" type="submit">Logout</button>
-    </a>
-</nav>
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+     <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 
-<div class="text-center">
-<div class="btn-group btn-group-lg my-sm-5 float-justify" role="group" aria-label="Basic example">
-  <a href="/role">
-    <button type="button" class="btn btn-primary">Role</button>
-  </a>
-  <a href="/buku">
-    <button type="button" class="btn btn-success">Buku</button>
-  </a>
-  <a href="/peminjaman">
-    <button type="button" class="btn btn-warning">Peminjaman</button>
-  </a>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav">
+
+          <a class="nav-link navlogo text-center" href="/admin/a">
+            <img src="https://www.sekalahita.id/assets/images/logo/logo.png">
+          </a>
+
+        <li class="nav-item">
+          <a class="nav-link sidefrst" href="/admin/a">
+            <span class="textside">  Home</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link sidesecnd" href="/admin/role">
+            <span class="textside">  Role</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link sidesthrd" href="/admin/buku">
+            <span class="textside">  Buku</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link sidesforth" href="/admin/peminjaman">
+            <span class="textside">  Peminjaman</span>
+          </a>
+        </li>
+      </ul>
+      
+      <ul class="navbar-nav2 ml-auto">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome Admin</a>
+            <ul class="dropdown-menu">
+                <li class="resflset"><a href="/logout"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
+            </ul>
+        </li>
+      </ul>
+      
+    </div>
+  </nav>
+
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+
+      <!-- Icon Cards-->
+        <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-2 mt-4">
+            <div class="inforide">
+              <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-4 rideone">
+                    <img src="https://vignette.wikia.nocookie.net/nationstates/images/2/29/WS_Logo.png/revision/latest?cb=20080507063620">
+                </div>
+                <div class="col-lg-9 col-md-8 col-sm-8 col-8 fontsty">
+                    <a href="/admin/buku">                           
+                      <h4>Buku</h4>
+                      <h2>{{$jumlah}}</h2>
+                    </a>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-2 mt-4">
+            <div class="inforide">
+              <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-4 ridetwo">
+                    <img src="https://vignette.wikia.nocookie.net/nationstates/images/2/29/WS_Logo.png/revision/latest?cb=20080507063620">
+                </div>
+                <div class="col-lg-9 col-md-8 col-sm-8 col-8 fontsty">
+                  <a href="/admin/peminjaman"> 
+                    <h4>Peminjaman</h4>
+                    <h2>{{$jumlah1}}</h2>
+                  </a>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-2 mt-4">
+            <div class="inforide">
+              <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-4 ridethree">
+                    <img src="https://vignette.wikia.nocookie.net/nationstates/images/2/29/WS_Logo.png/revision/latest?cb=20080507063620">
+                </div>
+                <div class="col-lg-9 col-md-8 col-sm-8 col-8 fontsty">
+                    <a href="/admin/jumlah"> 
+                      <h4>Role</h4>
+                      <h2>{{$jumlah2}}</h2>
+                    </a>
+                </div>
+              </div>
+            </div>
+        </div>
+
+    </div>
+  </div>
 </div>
-</div>
+
+</body>

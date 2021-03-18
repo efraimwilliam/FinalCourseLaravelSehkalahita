@@ -15,4 +15,9 @@ class Role extends Model
     protected $primaryKey = 'id';
     public $incrementing = true;
     protected $timestamp = true;
+
+    //one to many user
+    public function user(){
+        return $this->hasMany(User::class, 'role_id');
+    }
 }

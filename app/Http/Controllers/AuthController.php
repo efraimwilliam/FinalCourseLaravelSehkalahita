@@ -17,10 +17,15 @@ class AuthController extends Controller
 
         $credentials = $request->only(['username', 'password']);
         if(Auth::attempt($credentials)){
-            return redirect('/');
+            if(Auth::user()->role_id ==1){
+                return redirect('/admin/a');
+
+            }
+
+           return redirect('/');
         }
-        return redirect('/Auth');
-        //return response()->json('error');
+
+        return redirect('/auth');
         
     }
     public function logout(Request $request){
@@ -29,6 +34,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/auth');
     }
 }

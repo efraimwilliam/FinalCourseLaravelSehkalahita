@@ -15,4 +15,9 @@ class Buku extends Model
     protected $primaryKey = 'id';
     public $incrementing = true;
     protected $timestamp = true;
+
+    //one to many peminjaman
+    public function peminjaman(){
+        return $this->belongsToMany(Peminjaman::class, 'id_buku');
+    }
 }

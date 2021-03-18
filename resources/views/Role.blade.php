@@ -10,6 +10,7 @@
 
 
 <link href="{{ asset('css/dashboard2.css') }}" rel="stylesheet">
+<link href="{{ asset('css/buku.css') }}" rel="stylesheet">
 <!------ Include the above in your HEAD tag ---------->
 </head>
 <body>
@@ -59,3 +60,46 @@
       
     </div>
   </nav>
+
+   <!-- Table-->
+
+<div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+    <thead> 
+    
+        <tr> 
+            <th>ID</th>
+            <th>Role</th>
+            <th class="text-center">Action</th>
+        </tr>
+      
+    </thead>
+    <tbody>
+      @foreach($role as $roleakun)
+            <tr>
+                  <td>{{$roleakun->id}}</td>
+                  <td>{{$roleakun->name}}</td>
+                  <td class="text-center">
+                    <a class='btn btn-info btn-xs' href="#">
+                      <span class="glyphicon glyphicon-edit"></span> Edit
+                    </a> 
+                    <a href="#" class="btn btn-danger btn-xs">
+                      <span class="glyphicon glyphicon-remove"></span> Delete
+                    </a>
+                  </td>               
+                      <button href='/admin/updaterolepage {{$roleakun->id}}' type='button' class='btn-showedit btn btn-primary' data-toggle='modal'>Edit</button>
+                      <button href='{{$roleakun->id}}' type='submit' class='btn-delete btn btn-primary'>Delete</button>
+                  </td>
+            </tr>
+        @endforeach
+      </tbody>
+    </table>
+    </div>
+    <div class="button-create">
+    <a href="/admin/updaterolepage" class="btn btn-warning btn-lg" role="button" aria-pressed="true">Update</a>
+      <a href="/admin/createrolepage" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create Role</a>
+    </div>
+</div>
+
+
