@@ -32,11 +32,17 @@ Route::prefix('/admin')->group(function (){
     });
     
     //buku
-    Route::get('/buku', function(){
-        return view('Buku');
-    });
+    Route::get('/buku', [DashboardController::class, 'getbuku']);
 
-    Route::get('/tabelbuku', [DashboardController::class, 'getbuku']);
+    Route::post('/bukupage', [DashboardController::class, 'createbuku']);
+
+    Route::get('/createbukupage', [DashboardController::class, 'createbukupage']);
+
+    Route::post('/createbuku', [DashboardController::class, 'createbuku']);
+
+    Route::get('/updatebukupage', [DashboardController::class, 'updatebukupage']);
+
+    Route::post('/updatebuku', [DashboardController::class, 'updatebuku']);
 
     //peminjaman
 

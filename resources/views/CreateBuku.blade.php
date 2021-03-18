@@ -59,45 +59,28 @@
     </div>
   </nav>
 
-   <!-- Table-->
 
-<div class="container">
-    <div class="row col-md-6 col-md-offset-2 custyle">
-    <table class="table table-striped custab">
-    <thead> 
-    
-        <tr> 
-            <th>ID</th>
-            <th>Judul Buku</th>
-            <th>Jumlah Buku</th>
-            <th class="text-center">Action</th>
-        </tr>
-      
-    </thead>
-    <tbody>
-      @foreach($buku as $tabelbuku)
-            <tr>
-                  <td>{{$tabelbuku->id}}</td>
-                  <td>{{$tabelbuku->name}}</td>
-                  <td>{{$tabelbuku->jumlah_buku}}</td>
-                  <td class="text-center">
-                    <a class='btn btn-info btn-xs' href="#">
-                      <span class="glyphicon glyphicon-edit"></span> Edit
-                    </a> 
-                    <a href="#" class="btn btn-danger btn-xs">
-                      <span class="glyphicon glyphicon-remove"></span> Delete
-                    </a>
-                  </td>               
-                      <button id='{{$tabelbuku->id}}' type='button' class='btn-showedit btn btn-primary' data-toggle='modal'>Edit</button>
-                      <button id='{{$tabelbuku->id}}' type='submit' class='btn-delete btn btn-primary'>Delete</button>
-                  </td>
-            </tr>
-        @endforeach
-      </tbody>
-    </table>
+<div class="container" id="registrasi">
+        
+        <div class="row justify-content-center align-items-center" style="height:100vh">
+            <div class="col-4">
+            <p class="text-center">Registrasi Buku</p>
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/admin/createbuku" method="POST">
+                        @csrf
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="name" placeholder="Nama">
+                            </div>                            
+                            <div class="form-group">
+                                <input type="username" class="form-control" name="jumlah_buku" placeholder="Jumlah Buku">
+                            </div>
+                              <button type="button" class="btn btn-danger">Close</button> 
+                              <button type="submit" class="btn btn-primary">Submit</button>                    
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
     </div>
-    <div class="button-create">
-      <a href="/admin/createbukupage" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create User</a>
-    </div>
-</div>
-
