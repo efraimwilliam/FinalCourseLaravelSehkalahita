@@ -71,8 +71,8 @@
         <tr> 
             <th>ID</th>
             <th>Id Buku</th>
+            <th>Id admin</th>
             <th>Id User</th>
-            <th>Id Admin
             <th class="text-center">Action</th>
         </tr>
       
@@ -80,21 +80,20 @@
     <tbody>
       @foreach($peminjaman as $pinjam)
             <tr>
-                  <td>{{$pinjam->id}}</td>
-                  <td>{{$pinjam->id_buku}}</td>
-                  <td>{{$pinjam->id_user}}</td>
-                  <td>{{$pinjam->id_admin}}</td>
+                  <td class="text-center">{{$pinjam->id}}</td>
+                  <td class="text-center">{{$pinjam->id_buku}}</td>
+                  <td class="text-center">{{$pinjam->id_admin}}</td>
+                  <td class="text-center">{{$pinjam->id_user}}</td>
                   <td class="text-center">
-                    <a class='btn btn-info btn-xs' href="#">
+                    <a class='btn btn-info btn-xs' href="updatepeminjamanpage/{{$pinjam->id}}">
                       <span class="glyphicon glyphicon-edit"></span> Edit
                     </a> 
-                    <a href="#" class="btn btn-danger btn-xs">
-                      <span class="glyphicon glyphicon-remove"></span> Delete
-                    </a>
-                  </td>               
-                      <button id='{{$pinjam->id}}' type='button' class='btn-showedit btn btn-primary' data-toggle='modal'>Edit</button>
-                      <button id='{{$pinjam->id}}' type='submit' class='btn-delete btn btn-primary'>Delete</button>
-                  </td>
+
+                    <form action="/admin/deletepeminjaman/{{$pinjam->id}}" method="POST">
+                      @csrf
+                      @method('DELETE') 
+                        <button href='{{$pinjam->id}}' type='submit' class='btn-delete btn btn-primary btn-sm my-2 my-sm-0'>Delete</button>
+                    </form>
             </tr>
         @endforeach
       </tbody>

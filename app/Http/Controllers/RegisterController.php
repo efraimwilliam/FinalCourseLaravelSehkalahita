@@ -23,10 +23,7 @@ class RegisterController extends Controller
             'role_id'=>$request->role_id
         ]);
 
-        //return redirect('/');
-        return response()->json([
-            'status' => true,
-            'message' => "Registrasi Berhasil"
-        ]);
+        return redirect('/auth');
+
     }
 }

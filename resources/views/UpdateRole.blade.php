@@ -68,13 +68,11 @@
                 <div class="card">
                     <div class="card-body">
                     
-                        <form action="/admin/updaterole" method="POST">
-                        @csrf
-                        <div class="form-group">
-                                <input value  type="text" class="form-control" name="id" placeholder="Id">
-                            </div>   
+                        <form action="/admin/updaterole/{{$role->id}}" method="POST">
+                            @csrf
+                            @method('PUT') 
                             <div class="form-group">
-                                <input value  type="text" class="form-control" name="name" placeholder="Role">
+                            <input type="text" class="form-control" name="name" placeholder="Role" value="{{$role->name}}">
                             </div>                            
                                 <a href="/admin/role">                  
                                     <button type="button" class="btn btn-danger">Close</button> 

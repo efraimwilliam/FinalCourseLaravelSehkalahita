@@ -46,14 +46,30 @@ class DashboardController extends Controller
     }
 
     //update buku page
-    public function updatebukupage(){
+    public function updatebukupage($id){
+        $buku = Buku::find($id);
 
-        return view('UpdateBuku');
+        return view('UpdateBuku', compact('buku'));
     }
 
     //update buku
-    public function updatebuku(){
+    public function updatebuku(Request $request, $id){
+        $buku= Buku::where('id', $id)->first();
 
+        $buku->update([
+            'name' => $request->name,
+            'jumlah_buku' => $request->jumlah_buku
+        ]);
+
+        return redirect('/admin/buku');
+    }
+
+    //delete buku
+    public function deletebuku($id){
+        $buku = Buku::where('id', $id)->first();
+        $buku->delete();
+
+        return redirect('/admin/buku');
     }
 
     //get all data role
@@ -79,10 +95,12 @@ class DashboardController extends Controller
     }
 
     //update role page
-    public function updaterolepage(){
+    public function updaterolepage($id){
+        $role = Role::find($id);
 
-        return view('UpdateRole');
+        return view('UpdateRole', compact('role'));
     }
+
     //update role
     public function updaterole(Request $request, $id){
         $roles= Role::where('id', $id)->first();
@@ -92,35 +110,66 @@ class DashboardController extends Controller
         ]);
 
         return redirect('/admin/role');
-        
-        //return redirect('/admin/updaterole', compact('roles')) ;
-        //return view('UpdateRole', compact ('roles'));
 
+    }
+    //delete role
+    public function deleterole($id){
+        $role = Role::where('id', $id)->first();
+        $role->delete();
+
+        return redirect('/admin/role');
     }
 
     //get all data Peminjaman
     public function getpeminjaman(){
-        $peminjaman = DB::table('Peminjaman')->select('id', 'id_buku', 'id_user', 'id_admin')->get();
+        $peminjaman = DB::table('Peminjaman')->select('id', 'id_buku', 'id_admin', 'id_user')->get();
         
         return view('Peminjaman', compact('peminjaman'));
     }
 
-    //create peminjaman page
-    public function createpeminjamanpage(Request $request){
-        
-        return view('/CreatePeminjaman');
-    }
+    public function createpeminjamanpage(){
+        return view('CreatePeminjaman');
 
+    }
     //create peminjaman
     public function createpeminjaman(Request $request){
         $peminjaman = Peminjaman::create([
-            'id_buku' => $request->id_buku,
-            'id_user' => $request->id_user,
-            'id_admin' => $request->id_admin
+            'id_buku'=> $request->id_buku,
+            'id_admin'=> $request->id_admin,
+            'id_user'=> $request->id_user
         ]);
 
         return redirect('/admin/peminjaman');
     }
+
+    //update peminjaman page
+    public function updatepeminjamanpage($id){
+        $peminjaman = Peminjaman::find($id);
+        
+        return view('/UpdatePeminjaman', compact('peminjaman'));
+    }
+
+    //update peminjaman
+    public function updatepeminjaman(Request $request, $id){
+        $peminjaman= Peminjaman::where('id', $id)->first();
+
+        $peminjaman->update([
+            'id_buku' => $request->id_buku,
+            'id_admin' => $request->id_admin,
+            'id_user' => $request->id_user
+        ]);
+
+        return redirect('/admin/peminjaman');
+
+    }
+    //delete peminjaman
+    public function deletepeminjaman($id){
+        $peminjaman = Peminjaman::where('id', $id)->first();
+        $peminjaman->delete();
+
+        return redirect('/admin/peminjaman');
+    }
+
 
 
 }

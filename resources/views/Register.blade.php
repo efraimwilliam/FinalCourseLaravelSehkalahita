@@ -33,6 +33,9 @@
                                 <option>2</option>
                                 </select>
                             </div>
+                                <a href="/auth">
+                                    <button type="button" class="btn btn-danger">Cancel</button>
+                                </a>
                                 <button type="submit" class="btn btn-primary">Submit</button>                    
                         </form>
                     </div>

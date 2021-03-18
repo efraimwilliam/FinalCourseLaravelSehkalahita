@@ -20,6 +20,8 @@ class AuthController extends Controller
             if(Auth::user()->role_id ==1){
                 return redirect('/admin/a');
 
+            }else if (Auth::user()->role_id==2){
+                return redirect('/user/a');
             }
 
            return redirect('/');

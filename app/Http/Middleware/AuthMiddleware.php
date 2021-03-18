@@ -31,7 +31,7 @@ class AuthMiddleware
                 return redirect('/auth');   
             }
             //else
-            return redirect('/auth');
+            return redirect('/');
         }
        return redirect('auth');
     }

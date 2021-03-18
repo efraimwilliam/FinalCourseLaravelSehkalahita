@@ -67,7 +67,6 @@
     <div class="row col-md-6 col-md-offset-2 custyle">
     <table class="table table-striped custab">
     <thead> 
-    
         <tr> 
             <th>ID</th>
             <th>Role</th>
@@ -78,18 +77,20 @@
     <tbody>
       @foreach($role as $roleakun)
             <tr>
-                  <td>{{$roleakun->id}}</td>
-                  <td>{{$roleakun->name}}</td>
+                  <td class="text-center">{{$roleakun->id}}</td>
+                  <td class="text-center">{{$roleakun->name}}</td>
                   <td class="text-center">
-                    <a class='btn btn-info btn-xs' href="#">
+                    <a class='btn btn-info btn-xs' href="updaterolepage/{{$roleakun->id}}">
                       <span class="glyphicon glyphicon-edit"></span> Edit
-                    </a> 
-                    <a href="#" class="btn btn-danger btn-xs">
-                      <span class="glyphicon glyphicon-remove"></span> Delete
                     </a>
+                    <form action="/admin/deleterole/{{$roleakun->id}}" method="POST">
+                      @csrf
+                      @method('DELETE') 
+                        <button href='{{$roleakun->id}}' type='submit' class='btn-delete btn btn-primary btn-sm my-2 my-sm-0'>Delete</button>
+                    
+                    </form>
                   </td>               
-                      <button href='/admin/updaterolepage {{$roleakun->id}}' type='button' class='btn-showedit btn btn-primary' data-toggle='modal'>Edit</button>
-                      <button href='{{$roleakun->id}}' type='submit' class='btn-delete btn btn-primary'>Delete</button>
+                     <button href='{{$roleakun->id}}' type='submit' class='btn-delete btn btn-primary'>Delete</button>
                   </td>
             </tr>
         @endforeach
@@ -97,7 +98,6 @@
     </table>
     </div>
     <div class="button-create">
-    <a href="/admin/updaterolepage" class="btn btn-warning btn-lg" role="button" aria-pressed="true">Update</a>
       <a href="/admin/createrolepage" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create Role</a>
     </div>
 </div>

@@ -67,15 +67,18 @@
             <p class="text-center">Update Buku</p>
                 <div class="card">
                     <div class="card-body">
-                        <form action="/admin/createbuku" method="POST">
+                        <form action="/admin/updatebuku/{{$buku->id}}" method="POST">
                         @csrf
+                        @method('PUT') 
                             <div class="form-group">
-                                <input value = {{$buku->name}} type="text" class="form-control" name="name" placeholder="Nama">
+                              <input type="text" class="form-control" name="name" placeholder="Nama" value="{{$buku->name}}">
                             </div>                            
                             <div class="form-group">
-                                <input value= {{$buku->jumlah_buku}} type="username" class="form-control" name="jumlah_buku" placeholder="Jumlah Buku">
+                            <input type="text" class="form-control" name="jumlah_buku" placeholder="Jumlah Buku" value="{{$buku->jumlah_buku}}">
                             </div>
-                              <button type="button" class="btn btn-danger">Close</button> 
+                              <a href="/admin/buku">                  
+                                  <button type="button" class="btn btn-danger">Close</button> 
+                              </a>
                               <button type="submit" class="btn btn-primary">Submit</button>                    
                         </form>
                     </div>

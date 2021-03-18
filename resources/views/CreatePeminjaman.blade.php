@@ -73,11 +73,11 @@
                                 <input type="text" class="form-control" name="id_buku" placeholder="Id Buku">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="id_user" placeholder="Id User">
-                            </div>  
-                            <div class="form-group">
                                 <input type="text" class="form-control" name="id_admin" placeholder="Id Admin">
                             </div>        
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="id_user" placeholder="Id User">
+                            </div> 
                                 <a href="/admin/peminjaman">                  
                                     <button type="button" class="btn btn-danger">Close</button> 
                                 </a>
@@ -89,3 +89,4 @@
         </div>
         </div>
     </div>
+    

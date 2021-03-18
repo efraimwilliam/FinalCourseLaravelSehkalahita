@@ -7,6 +7,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
+
+
 <link href="{{ asset('css/dashboard2.css') }}" rel="stylesheet">
 <link href="{{ asset('css/buku.css') }}" rel="stylesheet">
 <!------ Include the above in your HEAD tag ---------->
@@ -25,23 +27,17 @@
           </a>
 
         <li class="nav-item">
-          <a class="nav-link sidefrst" href="/admin/a">
+          <a class="nav-link sidefrst" href="/user/a">
             <span class="textside">  Home</span>
           </a>
         </li>
-
         <li class="nav-item">
-          <a class="nav-link sidesecnd" href="/admin/role">
-            <span class="textside">  Role</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link sidesthrd" href="/admin/buku">
+          <a class="nav-link sidesthrd" href="/user/buku">
             <span class="textside">  Buku</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link sidesforth" href="/admin/peminjaman">
+          <a class="nav-link sidesforth" href="/user/peminjaman">
             <span class="textside">  Peminjaman</span>
           </a>
         </li>
@@ -49,7 +45,7 @@
       
       <ul class="navbar-nav2 ml-auto">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome Admin</a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome User</a>
             <ul class="dropdown-menu">
                 <li class="resflset"><a href="/logout"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
             </ul>
@@ -68,35 +64,25 @@
     
         <tr> 
             <th>ID</th>
-            <th>Judul Buku</th>
-            <th>Jumlah Buku</th>
-            <th class="text-center">Action</th>
+            <th>Id Buku</th>
+            <th>Id admin</th>
+            <th>Id User</th>
         </tr>
       
     </thead>
     <tbody>
-      @foreach($buku as $tabelbuku)
+      @foreach($peminjaman as $pinjam)
             <tr>
-                  <td class="text-center">{{$tabelbuku->id}}</td>
-                  <td class="text-center">{{$tabelbuku->name}}</td>
-                  <td class="text-center">{{$tabelbuku->jumlah_buku}}</td>
+                  <td class="text-center">{{$pinjam->id}}</td>
+                  <td class="text-center">{{$pinjam->id_buku}}</td>
+                  <td class="text-center">{{$pinjam->id_admin}}</td>
+                  <td class="text-center">{{$pinjam->id_user}}</td>
                   <td class="text-center">
-                    <a class='btn btn-info btn-xs' href="updatebukupage/{{$tabelbuku->id}}">
-                      <span class="glyphicon glyphicon-edit"></span> Edit
-                    </a> 
-                    <form action="/admin/deletebuku/{{$tabelbuku->id}}" method="POST">
-                      @csrf
-                      @method('DELETE') 
-                        <button href='{{$tabelbuku->id}}' type='submit' class='btn-delete btn btn-primary btn-sm my-2 my-sm-0'>Delete</button>
-                    </form>
-
             </tr>
         @endforeach
       </tbody>
     </table>
     </div>
-    <div class="button-create">
-      <a href="/admin/createbukupage" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create User</a>
-    </div>
 </div>
+
 
