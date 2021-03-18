@@ -7,9 +7,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
-
-
 <link href="{{ asset('css/dashboard2.css') }}" rel="stylesheet">
+<link href="{{ asset('css/buku.css') }}" rel="stylesheet">
 <!------ Include the above in your HEAD tag ---------->
 </head>
 <body>
@@ -60,5 +59,45 @@
     </div>
   </nav>
 
- 
-</body>
+   <!-- Table-->
+
+<div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+    <thead> 
+    
+        <tr> 
+            <th>ID</th>
+            <th>Judul Buku</th>
+            <th>Jumlah Buku</th>
+            <th class="text-center">Action</th>
+        </tr>
+      
+    </thead>
+    <tbody>
+      @foreach($buku as $tabelbuku)
+            <tr>
+                  <td>{{$tabelbuku->id}}</td>
+                  <td>{{tabelbuku->name}}</td>
+                  <td>{{$tabelbuku->jumlah_buku}}</td>
+                  <td class="text-center">
+                    <a class='btn btn-info btn-xs' href="#">
+                      <span class="glyphicon glyphicon-edit"></span> Edit
+                    </a> 
+                    <a href="#" class="btn btn-danger btn-xs">
+                      <span class="glyphicon glyphicon-remove"></span> Delete
+                    </a>
+                  </td>               
+                      <button id='aa' type='button' class='btn-show btn btn-primary' data-toggle='modal' data-target='#lihatModal'>Lihat</button>
+                      <button id='aa' type='button' class='btn-showedit btn btn-primary' data-toggle='modal' data-target='#editModal'>Edit</button>
+                      <button id='aa' type='submit' class='btn-delete btn btn-primary'>Delete</button>
+                  </td>
+            </tr>
+        @endforeach
+      </tbody>
+    </table>
+    </div>
+    <div class="button-create">
+      <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create User</a>
+    </div>
+</div>

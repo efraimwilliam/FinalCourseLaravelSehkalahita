@@ -17,26 +17,31 @@ use App\Http\Controllers\DashboardController;
 */
 
 
-
 Route::get('/', function () {
     return view('Dashboard');
 })->middleware('auth:2');
 
 Route::prefix('/admin')->group(function (){
 
-    Route::get('/a', function () {
-        return view('Dashboard2');
-    });
+    //home
+    Route::get('/a', [DashboardController::class, 'getjumlahbuku']);
 
+    //role
     Route::get('/role', function(){
         return view('Role');
     });
     
+    //buku
     Route::get('/buku', function(){
         return view('Buku');
     });
-});
 
+    Route::get('/tabelbuku', [DashboardController::class, 'getbuku']);
+
+    //peminjaman
+
+    
+});
 
 
 
@@ -50,15 +55,6 @@ Route::post('/daftar', [RegisterController::class, 'register']);
 
 Route::get('/logout', [AuthController::class, 'logout']);
 
-Route::get('/jumlahbuku', [DashboardController::class, 'getjumlahbuku']);
-
-Route::get('/role', function(){
-    return view('Role');
-});
-
-Route::get('/Buku', function(){
-    return view('Buku');
-});
 
 
 

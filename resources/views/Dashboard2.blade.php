@@ -21,7 +21,7 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav">
 
-          <a class="nav-link navlogo text-center" href="index.php">
+          <a class="nav-link navlogo text-center" href="/admin/a">
             <img src="https://www.sekalahita.id/assets/images/logo/logo.png">
           </a>
 
@@ -73,7 +73,7 @@
                 </div>
                 <div class="col-lg-9 col-md-8 col-sm-8 col-8 fontsty">
                     <h4>Buku</h4>
-                    <h2>{{$jumlah ?? 'jumlah'}}</h2>
+                    <h2>{{$jumlah}}</h2>
                 </div>
               </div>
             </div>
