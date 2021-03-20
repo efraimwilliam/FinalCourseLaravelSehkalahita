@@ -81,13 +81,17 @@
                   <td class="text-center">{{$tabelbuku->name}}</td>
                   <td class="text-center">{{$tabelbuku->jumlah_buku}}</td>
                   <td class="text-center">
+
+                    <a class='btn btn-info btn-xs' href="lihatbukupage/{{$tabelbuku->id}}">
+                      <span class="glyphicon glyphicon-edit"></span> Lihat
+                    </a> 
                     <a class='btn btn-info btn-xs' href="updatebukupage/{{$tabelbuku->id}}">
                       <span class="glyphicon glyphicon-edit"></span> Edit
                     </a> 
                     <form action="/admin/deletebuku/{{$tabelbuku->id}}" method="POST">
                       @csrf
                       @method('DELETE') 
-                        <button href='{{$tabelbuku->id}}' type='submit' class='btn-delete btn btn-primary btn-sm my-2 my-sm-0'>Delete</button>
+                        <button href='{{$tabelbuku->id}}' type='submit' class='btn-delete btn btn-danger btn-sm my-2 my-sm-2 p-2'>Delete</button>
                     </form>
 
             </tr>

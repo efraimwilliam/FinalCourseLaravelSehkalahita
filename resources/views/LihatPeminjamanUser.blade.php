@@ -20,28 +20,28 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav">
 
-          <a class="nav-link navlogo text-center" href="/admin/a">
+          <a class="nav-link navlogo text-center" href="/user/a">
             <img src="https://www.sekalahita.id/assets/images/logo/logo.png">
           </a>
 
         <li class="nav-item">
-          <a class="nav-link sidefrst" href="/admin/a">
+          <a class="nav-link sidefrst" href="/user/a">
             <span class="textside">  Home</span>
           </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link sidesecnd" href="/admin/role">
+          <a class="nav-link sidesecnd" href="/user/role">
             <span class="textside">  Role</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link sidesthrd" href="/admin/buku">
+          <a class="nav-link sidesthrd" href="/user/buku">
             <span class="textside">  Buku</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link sidesforth" href="/admin/peminjaman">
+          <a class="nav-link sidesforth" href="/user/peminjaman">
             <span class="textside">  Peminjaman</span>
           </a>
         </li>
@@ -49,7 +49,7 @@
       
       <ul class="navbar-nav2 ml-auto">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome Admin</a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome User</a>
             <ul class="dropdown-menu">
                 <li class="resflset"><a href="/logout"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
             </ul>
@@ -59,36 +59,37 @@
     </div>
   </nav>
 
+   <!-- Table-->
 
-<div class="container" id="registrasi">
-        
-        <div class="row justify-content-center align-items-center" style="height:100vh">
-            <div class="col-4">
-            <p class="text-center">Create Peminjaman</p>
-                <div class="card">
-                    <div class="card-body">
-                        <form action="/admin/createpeminjaman" method="POST">
-                        @csrf
-                          <select class="form-select form-select-lg mb-3 col-12"  name=id_buku aria-label="Default select example">
-          
-                              <option selected>Pilih buku anda</option>
-                              @foreach($peminjaman as $pinjam)
-                              <option value="{{$pinjam->id}}">{{$pinjam->name}}</option>
-                              @endforeach
-
-                          </select>      
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="id_user" placeholder="Id User">
-                            </div> 
-                                <a href="/admin/peminjaman">                  
-                                    <button type="button" class="btn btn-danger">Close</button> 
-                                </a>
-                              <button type="submit" class="btn btn-primary">Submit</button>                    
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </div>
+<div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+    <thead> 
     
+        <tr> 
+            <th>ID</th>
+            <th>Nama Buku</th>
+            <th>Nama Admin</th>
+            <th class="text-center">Nama User</th>
+        </tr>
+      
+    </thead>
+    <tbody>
+      
+            <tr>
+                  <td class="text-center">{{$peminjaman->id}}</td>
+                  <td class="text-center">{{$peminjaman->buku['name']}}</td>
+                  <td class="text-center">{{$peminjaman->useradmin['name']}}</td>
+                  <td class="text-center">{{$peminjaman->useruser['name']}}</td>
+                  <td class="text-center">
+
+            </tr>
+       
+      </tbody>
+    </table>
+    </div>
+    <div class="button-create">
+      <a href="/user/peminjaman" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Close</a>
+    </div>
+</div>
+

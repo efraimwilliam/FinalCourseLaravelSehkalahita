@@ -67,6 +67,7 @@
             <th>Id Buku</th>
             <th>Id admin</th>
             <th>Id User</th>
+            <th>Action</th>
         </tr>
       
     </thead>
@@ -78,6 +79,10 @@
                   <td class="text-center">{{$pinjam->id_admin}}</td>
                   <td class="text-center">{{$pinjam->id_user}}</td>
                   <td class="text-center">
+
+                  <a class='btn btn-info btn-xs' href="lihatpeminjamanpage/{{$pinjam->id}}">
+                      <span class="glyphicon glyphicon-edit"></span> Lihat
+                    </a> 
             </tr>
         @endforeach
       </tbody>

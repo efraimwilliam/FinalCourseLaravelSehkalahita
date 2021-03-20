@@ -85,14 +85,18 @@
                   <td class="text-center">{{$pinjam->id_admin}}</td>
                   <td class="text-center">{{$pinjam->id_user}}</td>
                   <td class="text-center">
+
+                  <a class='btn btn-info btn-xs' href="lihatpeminjamanpage/{{$pinjam->id}}">
+                      <span class="glyphicon glyphicon-edit"></span> Lihat
+                    </a> 
                     <a class='btn btn-info btn-xs' href="updatepeminjamanpage/{{$pinjam->id}}">
                       <span class="glyphicon glyphicon-edit"></span> Edit
-                    </a> 
+                    </a>
 
                     <form action="/admin/deletepeminjaman/{{$pinjam->id}}" method="POST">
                       @csrf
                       @method('DELETE') 
-                        <button href='{{$pinjam->id}}' type='submit' class='btn-delete btn btn-primary btn-sm my-2 my-sm-0'>Delete</button>
+                        <button href='{{$pinjam->id}}' type='submit' class='btn-delete btn btn-danger btn-sm my-2 my-sm-1 p-2'>Delete</button>
                     </form>
             </tr>
         @endforeach
@@ -100,7 +104,7 @@
     </table>
     </div>
     <div class="button-create">
-      <a href="/admin/createpeminjamanpage" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create Role</a>
+      <a href="/admin/createpeminjamanpage/{{$pinjam->id}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create Peminjaman</a>
     </div>
 </div>
 

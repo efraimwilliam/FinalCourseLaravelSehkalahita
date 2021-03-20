@@ -33,4 +33,20 @@ class DashboardUserController extends Controller
             
         return view('PeminjamanUser', compact('peminjaman'));
         }
+
+        //lihat buku
+        public function lihatbukupage($id){
+        $buku = Buku::find($id);
+
+        //return $peminjaman;
+        return view('LihatBukuUser', compact('buku'));
+    }
+
+    //lihat peminjaman page
+    public function lihatpeminjamanpage($id){
+        $peminjaman = Peminjaman::find($id);
+
+        //return $peminjaman;
+        return view('LihatPeminjamanUser', compact('peminjaman'));
+    }
 }

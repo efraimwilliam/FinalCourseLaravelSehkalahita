@@ -59,36 +59,34 @@
     </div>
   </nav>
 
+   <!-- Table-->
 
-<div class="container" id="registrasi">
-        
-        <div class="row justify-content-center align-items-center" style="height:100vh">
-            <div class="col-4">
-            <p class="text-center">Create Peminjaman</p>
-                <div class="card">
-                    <div class="card-body">
-                        <form action="/admin/createpeminjaman" method="POST">
-                        @csrf
-                          <select class="form-select form-select-lg mb-3 col-12"  name=id_buku aria-label="Default select example">
-          
-                              <option selected>Pilih buku anda</option>
-                              @foreach($peminjaman as $pinjam)
-                              <option value="{{$pinjam->id}}">{{$pinjam->name}}</option>
-                              @endforeach
-
-                          </select>      
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="id_user" placeholder="Id User">
-                            </div> 
-                                <a href="/admin/peminjaman">                  
-                                    <button type="button" class="btn btn-danger">Close</button> 
-                                </a>
-                              <button type="submit" class="btn btn-primary">Submit</button>                    
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </div>
+<div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+    <thead> 
     
+        <tr> 
+            <th>ID</th>
+            <th>Nama Buku</th>
+            <th>Jumlah Buku</th>
+        </tr>
+      
+    </thead>
+    <tbody>
+            <tr>
+                <td class="text-center">{{$buku->id}}</td>
+                  <td class="text-center">{{$buku->name}}</td>
+                  <td class="text-center">{{$buku->jumlah_buku}}</td>
+                  <td class="text-center">
+
+            </tr>
+       
+      </tbody>
+    </table>
+    </div>
+    <div class="button-create">
+      <a href="/admin/buku" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Close</a>
+    </div>
+</div>
+

@@ -63,7 +63,7 @@
         <tr> 
             <th>ID</th>
             <th>Judul Buku</th>
-            <th>Jumlah Buku</th>
+            <th>Action</th>
         </tr>
       
     </thead>
@@ -72,12 +72,16 @@
             <tr>
                   <td class="text-center">{{$tabelbuku->id}}</td>
                   <td class="text-center">{{$tabelbuku->name}}</td>
-                  <td class="text-center">{{$tabelbuku->jumlah_buku}}</td>
                   <td class="text-center">
+
+                  <a class='btn btn-info btn-xs' href="lihatbukupage/{{$tabelbuku->id}}">
+                      <span class="glyphicon glyphicon-edit"></span> Lihat
+                    </a> 
             </tr>
         @endforeach
       </tbody>
     </table>
+
     </div>
 </div>
 

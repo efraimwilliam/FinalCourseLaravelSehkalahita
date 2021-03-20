@@ -7,7 +7,8 @@ use DB;
 use App\Models\Buku;
 use App\Models\Role;
 use App\Models\Peminjaman;
-Use App\Models\User;
+use App\Models\User;
+use Auth;
 
 //Dashboard untuk ADMIN
 
@@ -62,6 +63,15 @@ class DashboardController extends Controller
         ]);
 
         return redirect('/admin/buku');
+    }
+
+
+    //lihat buku
+    public function lihatbukupage($id){
+        $buku = Buku::find($id);
+
+        //return $peminjaman;
+        return view('LihatBuku', compact('buku'));
     }
 
     //delete buku
@@ -127,15 +137,18 @@ class DashboardController extends Controller
         return view('Peminjaman', compact('peminjaman'));
     }
 
-    public function createpeminjamanpage(){
-        return view('CreatePeminjaman');
+    //create peminjaman page
+    public function createpeminjamanpage($id){
+        $peminjaman = Buku::get();
+
+        return view('CreatePeminjaman', compact('peminjaman'));
 
     }
     //create peminjaman
     public function createpeminjaman(Request $request){
         $peminjaman = Peminjaman::create([
             'id_buku'=> $request->id_buku,
-            'id_admin'=> $request->id_admin,
+            'id_admin'=> Auth::id(),
             'id_user'=> $request->id_user
         ]);
 
@@ -146,7 +159,16 @@ class DashboardController extends Controller
     public function updatepeminjamanpage($id){
         $peminjaman = Peminjaman::find($id);
         
+        
         return view('/UpdatePeminjaman', compact('peminjaman'));
+    }
+
+    //lihat peminjaman page
+    public function lihatpeminjamanpage($id){
+        $peminjaman = Peminjaman::find($id);
+
+        //return $peminjaman;
+        return view('LihatPeminjaman', compact('peminjaman'));
     }
 
     //update peminjaman

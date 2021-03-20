@@ -90,7 +90,7 @@
                     
                     </form>
                   </td>               
-                     <button href='{{$roleakun->id}}' type='submit' class='btn-delete btn btn-primary'>Delete</button>
+                     <button href='{{$roleakun->id}}' type='submit' class='btn-delete btn btn-delete btn-sm my-2 my-sm-0 p-2'>Delete</button>
                   </td>
             </tr>
         @endforeach

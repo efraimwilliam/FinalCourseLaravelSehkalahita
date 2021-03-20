@@ -26,8 +26,12 @@ Route::prefix('/user')->middleware('auth', 'role:user')->group( function () {
     //buku
     Route::get('/buku', [DashboardUserController::class, 'getbuku']);
 
+    Route::get('/lihatbukupage/{id}', [DashboardUserController::class, 'lihatbukupage']);
+
     //peminjaman
     Route::get('/peminjaman', [DashboardUserController::class, 'getpeminjaman']);
+
+    Route::get('/lihatpeminjamanpage/{id}', [DashboardUserController::class, 'lihatpeminjamanpage']);
 
 
 
@@ -53,6 +57,8 @@ Route::prefix('/admin')->middleware('auth', 'role:admin')->group(function (){
     Route::put('/updatebuku/{id}', [DashboardController::class, 'updatebuku']);
 
     Route::delete('/deletebuku/{id}', [DashboardController::class, 'deletebuku']);
+    
+    Route::get('/lihatbukupage/{id}', [DashboardController::class, 'lihatbukupage']);
 
 
     //role
@@ -72,7 +78,7 @@ Route::prefix('/admin')->middleware('auth', 'role:admin')->group(function (){
     //peminjaman
     Route::get('/peminjaman', [DashboardController::class, 'getpeminjaman']);
     
-    Route::get('/createpeminjamanpage', [DashboardController::class, 'createpeminjamanpage']);
+    Route::get('/createpeminjamanpage/{id}', [DashboardController::class, 'createpeminjamanpage']);
 
     Route::post('/createpeminjaman', [DashboardController::class, 'createpeminjaman']);
 
@@ -81,6 +87,8 @@ Route::prefix('/admin')->middleware('auth', 'role:admin')->group(function (){
     Route::put('/updatepeminjaman/{id}', [DashboardController::class, 'updatepeminjaman']);
 
     Route::delete('/deletepeminjaman/{id}', [DashboardController::class, 'deletepeminjaman']);
+
+    Route::get('/lihatpeminjamanpage/{id}', [DashboardController::class, 'lihatpeminjamanpage']);
     
    
 });
