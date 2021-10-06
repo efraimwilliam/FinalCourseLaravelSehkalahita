@@ -78,7 +78,7 @@ Route::prefix('/admin')->middleware('auth', 'role:admin')->group(function (){
     //peminjaman
     Route::get('/peminjaman', [DashboardController::class, 'getpeminjaman']);
     
-    Route::get('/createpeminjamanpage/{id}', [DashboardController::class, 'createpeminjamanpage']);
+    Route::get('/createpeminjamandpage/{id}', [DashboardController::class, 'createpeminjamanpage']);
 
     Route::post('/createpeminjaman', [DashboardController::class, 'createpeminjaman']);
 

@@ -11,7 +11,7 @@
  Target Server Version : 80023
  File Encoding         : 65001
 
- Date: 18/03/2021 13:51:30
+ Date: 05/10/2021 10:57:46
 */
 
 SET NAMES utf8mb4;
@@ -28,7 +28,7 @@ CREATE TABLE `Buku` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of Buku
@@ -36,6 +36,7 @@ CREATE TABLE `Buku` (
 BEGIN;
 INSERT INTO `Buku` VALUES (1, 'OCD', 5, '2021-03-18 12:53:12', '2021-03-18 12:53:14');
 INSERT INTO `Buku` VALUES (2, 'Keluarga Tani', 4, '2021-03-18 13:22:15', '2021-03-18 13:22:18');
+INSERT INTO `Buku` VALUES (3, 'sbmptn', 5, '2021-03-18 08:09:52', '2021-03-18 16:52:40');
 COMMIT;
 
 -- ----------------------------
@@ -112,12 +113,16 @@ CREATE TABLE `Peminjaman` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of Peminjaman
 -- ----------------------------
 BEGIN;
+INSERT INTO `Peminjaman` VALUES (1, 1, 1, 1, '2021-03-18 17:25:10', '2021-03-18 17:25:12');
+INSERT INTO `Peminjaman` VALUES (2, 1, 1, 1, '2021-03-18 09:44:07', '2021-03-18 09:44:07');
+INSERT INTO `Peminjaman` VALUES (4, 1, 2, 2, '2021-03-20 02:37:09', '2021-03-20 02:37:09');
+INSERT INTO `Peminjaman` VALUES (5, 3, 2, 1, '2021-03-20 03:22:15', '2021-03-20 03:22:15');
 COMMIT;
 
 -- ----------------------------
@@ -130,7 +135,7 @@ CREATE TABLE `Role` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of Role
@@ -138,6 +143,7 @@ CREATE TABLE `Role` (
 BEGIN;
 INSERT INTO `Role` VALUES (1, 'admin', '2021-03-17 20:33:34', '2021-03-17 20:33:36');
 INSERT INTO `Role` VALUES (2, 'user', '2021-03-17 20:33:45', '2021-03-17 20:33:48');
+INSERT INTO `Role` VALUES (3, 'Super Admin', '2021-03-18 09:00:31', '2021-03-18 09:00:31');
 COMMIT;
 
 -- ----------------------------
@@ -157,7 +163,7 @@ CREATE TABLE `users` (
   `role_id` int NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of users
@@ -165,6 +171,7 @@ CREATE TABLE `users` (
 BEGIN;
 INSERT INTO `users` VALUES (1, 'Efraim William Solang', 'efraimwilliam', 'efraimwilliam@gmail.com', NULL, '$2y$10$V3Xy616Zs0P8qe2w7FklqOvBNGyrbdTRsjIuxa9xqJfW8AjjwilR2', NULL, '2021-03-17 12:58:45', '2021-03-17 12:58:45', 2);
 INSERT INTO `users` VALUES (2, 'admin', 'admin', 'admin@gmail.com', NULL, '$2y$10$VJ9wFrGcO9.OMKlYC12H0.X1LPXgP4n8OWSeaep65jel7UxansGlu', NULL, '2021-03-17 14:47:31', '2021-03-17 14:47:31', 1);
+INSERT INTO `users` VALUES (4, 'kuda', 'kuda', 'kuda@gmail.com', NULL, '$2y$10$Y3pFVW./DWbjsPnTXnAXTOc4.60MqWE.JIT6N.W0HEKQf7T5yxfIm', NULL, '2021-03-18 18:05:57', '2021-03-18 18:05:57', 2);
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
